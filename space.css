@@ -57,4 +57,26 @@ label, select {
     gap: 1.5rem;
     margin-top: 2rem;
 }
+.kartya {
+    background: #1e3a5c;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: megjelenes 0.5s forwards;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kartya:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(52,152,219,0.25);
+}
+
+@keyframes megjelenes {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
