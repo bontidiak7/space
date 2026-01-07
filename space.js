@@ -54,3 +54,33 @@ function allomasSzuroFeltoltese() {
         allomasSzuroElem.appendChild(opcio);
     });
 }
+async function adatokBetoltese() {
+    mutatBetolto(true);
+    mutatHiba("");
+    try {
+        const valasz = await fetch(url);
+        if (!valasz.ok) throw new Error("Hiba a hálózati kérés során!");
+        const data = await valasz.json();
+
+        osszesEmber = data.people.map(e => ({
+            nev: e.name,
+            allomas: e.craft
+        }));
+
+        urbenLevokSzamaElem.textContent = `Jelenleg ${data.number} ember tartózkodik az űrben.`;
+
+        allomasok = [...new Set(osszesEmber.map(e => e.allomas))];
+        allomasSzuroFeltoltese();
+        szuroFrissitese();
+    } catch (err) {
+        mutatHiba("Nem sikerült betölteni az adatokat. Próbáld újra később!");
+        kartyaTartoElem.innerHTML = "";
+        urbenLevokSzamaElem.textContent = "";
+    } finally {
+        mutatBetolto(false);
+    }
+}
+
+allomasSzuroElem.addEventListener("change", szuroFrissitese);
+
+adatokBetoltese();
