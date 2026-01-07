@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0b1a2f;
+    color: #fff;
+}
+
+header {
+    background: #142850;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+#urben-levok-szama {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+label, select {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#betolto {
+    display: none;
+    margin: 2rem auto;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: forog 1s linear infinite;
+}
+
+@keyframes forog {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+.hiba {
+    color: #ff4d4d;
+    background: #fff0f0;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    display: none;
+}
+
+.kartya-racs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
